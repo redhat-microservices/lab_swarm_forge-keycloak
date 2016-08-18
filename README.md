@@ -22,4 +22,7 @@ independently.
 
 
 ### Extend the Demo with more capabilities
-Now we have seen 
+Now we have seen how to implement basic set of services, secure and monitor them, we would like to go one step further with moving those from traditional bare-metal environment to leverage new deployment model and targets. In the table below we explain briefly what capabilities are available in the different target environment to heklp you understand what you get for free or what you will to bring yourself depending on where you choose to deploy your services.	
+In this section we will demonstrate how to move the you build in the previous steps to Openshift and how you can benefit from its built-in capabilities.
+
+[insert table here]
