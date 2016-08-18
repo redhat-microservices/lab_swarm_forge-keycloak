@@ -7,7 +7,7 @@ Lab using Forge / Swarm / KeyCloak
 Basically there are 2 main paths to chose from, either you start from scratch or you decide to decompose an existing application into  set of microservices.
 In the next section we will focus on the former, known as greenfiled. Then later on we will explore also how one can take an existing application and transform it to use Wildfly-Swarm.
 
-While a microservices aechitecture doesn't mandate using a specific language for implelentaitonm we decided here to take a pragmatic apporach, we will choose the Java EE path with Wildfly-Swarm, then later in our demo, once we completed our basic app, we will explore how these services can interact wih other services that may use Spring Boot, Vert.X, Node.JS or anything you may want to use.
+While a microservices architecture doesn't mandate using a specific language for implemention we decided here to take a pragmatic approach, we will choose the Java EE path with Wildfly-Swarm, then later in our demo, once we completed our basic app, we will explore how these services can interact wih other services that may use Spring Boot, Vert.X, Node.JS or anything you may want to use.
 But let's keep that for the last section.
 ![Overall Demo Workflow](images/msademo-overall-workflow.png)
 
@@ -22,7 +22,7 @@ independently.
 
 
 ### Extend the Demo with more capabilities
-Now we have seen how to implement basic set of services, secure and monitor them, we would like to go one step further with moving those from traditional bare-metal environment to leverage new deployment model and targets. In the table below we explain briefly what capabilities are available in the different target environment to heklp you understand what you get for free or what you will to bring yourself depending on where you choose to deploy your services.	
+Now we have seen how to implement basic set of services, secure and monitor them, we would like to go one step further with moving those from traditional bare-metal environment to leverage new deployment model and targets. In the table below we explain briefly what capabilities are available in the different target environment to help you understand what you get for free or what you will to bring yourself depending on where you choose to deploy your services.	
 In this section we will demonstrate how to move the you build in the previous steps to Openshift and how you can benefit from its built-in capabilities.
 
 [insert table here]
