@@ -97,6 +97,9 @@ rest-generate-endpoints-from-entities --targets org.mylab.model.Book
 ----
 
 === Secure the endpoints with KeyCloak
+
+IMPORTANT: You need a Keycloak server running on port 9000 and make sure that the Direct Access Grants Enabled option is enabled for this client
+
 [source]
 ----
 # Configure KeyCloak authentication
@@ -107,7 +110,6 @@ security-add-constraint --web-resource-name Book --url-patterns /rest/books --se
 # Install the keycloak.json file to WEB-INF
 keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
 ----
-
 
 === Enable Application Performance Monitoring
 
