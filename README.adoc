@@ -55,16 +55,78 @@ Logging:::
 == The Use case for this Lab
 
 == Let's get started
+In this section we will be following the greenfield path.
+
 === Prepare your environment
-=== Create a new Project in Forge
-=== Adding your entities, datasources, endpoints
+you will need to install the following on your machine:
+
+- [x] JDK 1.8
+- [x] Maven 3.3.6
+- [x] Forge 3.2.2 or higher
+- [x] JBoss Developer Studio 10 (optional)
+
+=== Start Forge
+
+image::images/forge-start.png[]
+
+
 === Setup Wildfly-Swarm plugins
 [source]
 ----
-#Install the required plugins
 addon-install-from-git --url https://github.com/forge/wildfly-swarm-addon.git
 addon-install-from-git --url https://github.com/forge/keycloak-addon.git
 ----
+
+=== Create a new Project in Forge
+
+[source]
+----
+project-new --named mylab --stack JAVA_EE_7 --type wildfly-swarm
+----
+
+=== Adding your entities, datasources, endpoints
+
+[source]
+----
+jpa-new-entity --named Book
+# Add fields to the Book entity
+jpa-new-field --named title
+...
+# Create the REST endpoint for the entity
+rest-generate-endpoints-from-entities --targets org.mylab.model.Book
+----
+
 === Secure the endpoints with KeyCloak
+[source]
+----
+
+----
+
+
 === Enable Application Performance Monitoring
+
+[source]
+----
+
+----
+
 === Putting it all together
+You can run all the above commands from a single script. [link]
+
+[source]
+----
+run hands-on-lab.fsh
+----
+
+Let's generate the `uberjar` and run, using either ways:
+
+[source]
+----
+mvn package && java -jar ./target/mylab-swarm.jar
+----
+or
+[source]
+----
+mvn wildfly-swarm:run
+----
+or via your IDE with the `Main` class.
