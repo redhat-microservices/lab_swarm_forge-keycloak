@@ -60,10 +60,10 @@ In this section we will be following the greenfield path.
 === Prepare your environment
 you will need to install the following on your machine:
 
-- [x] JDK 1.8
-- [x] Maven 3.3.6
-- [x] Forge 3.2.2 or higher
-- [x] JBoss Developer Studio 10 (optional)
+- [x] http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[JDK 1.8]
+- [x] https://maven.apache.org/download.cgi[Maven 3.3.6]
+- [x] https://forge.jboss.org/[Forge 3.2.2 or higher]
+- [x] http://developers.redhat.com/products/devstudio/download/?referrer=jbd[JBoss Developer Studio 10 (optional))
 
 === Start Forge
 
