@@ -19,7 +19,7 @@ toc::[]
 == Workflow Overview
 
 Basically there are 2 main paths to chose from, either you start from scratch or you decide to decompose an existing application into a set of microservices.
-In the next section we will focus on the former, known as greenfield. Then later on we will explore also how one can take an existing `Java EE` application and adapt it to use `Wildfly-Swarm`.
+In the next section we will focus on the former, known as https://www.techopedia.com/definition/5063/greenfield-deployment[greenfield]. Then later on we will explore also how one can take an existing `Java EE` application and adapt it to use `Wildfly-Swarm`.
 
 While a microservices architecture doesn't mandate using a specific language for implementation we decided here to take a pragmatic approach, we will choose the `Java EE` path with `Wildfly-Swarm`, then later in our demo, once we completed our basic app, we will explore how these services can interact with other services that may be implemented using a different technology such as `Spring Boot`, `Vert.X`, `Node.JS` etc...
 But let's keep that for the last section.
