@@ -12,10 +12,11 @@ toc::[]
 
 * Understand where to start when building microservices
 * Get up and running deploying `microservices` on `Wildfly-Swarm` with `Forge`.
-* Secure RESTful endpoints using `Keycloak`
-* Manage your application performance with `Hawkular`, and more
-* Build `microservices` that talk to each other
-
+* Build a microservices based application using incremental steps to add capabilities along the way.
+* Secure your application endpoints using `Keycloak`
+* Manage your application performance with `Hawkular`
+* Build `polyglot microservices` by replacing some of the services with their equivalent in `Node.js` and `Vert.X`
+* Explore different deployment options of your `microservices` with `Docker` and `Openshift`
 == Workflow Overview
 
 Basically there are 2 main paths to chose from, either you start from scratch or you decide to decompose an existing application into a set of microservices.
