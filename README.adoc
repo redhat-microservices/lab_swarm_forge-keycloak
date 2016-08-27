@@ -23,7 +23,7 @@ toc::[]
 While a microservices architecture doesn't mandate using a specific language for implementation we decided here to take a pragmatic approach, we will choose the `Java EE` path with `Wildfly-Swarm`, then later in our demo, once we completed our basic app, we will explore how these services can interact with other services that may be implemented using a different technology such as `Spring Boot`, `Vert.X`, `Node.JS` etc...
 But let's keep that for the last section.
 
-=== Workflow 
+=== Workflow
 As explained earlier this path will be implemented using Wildfly-Swarm. If you want to see how to work with other languages, skip to the last section.
 
 image::images/msademo-greenfield-workflow.png[]
@@ -31,7 +31,25 @@ image::images/msademo-greenfield-workflow.png[]
 == The Use case for this Lab
 
 == Let's get started
-In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you cna run the full `Forge` script script availabel wsfk-hol.fsh[here].
+In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you can run the full `Forge` script script available link:wsfk-hol.fsh[here].
+
+=== Setup Core Services
+
+==== Security - Keycloak
+We will be using the purposely build Keycloak Wildfly-Swarm `uberjar`.
+
+Download:
+
+- [x] http://central.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2016.8.1/keycloak-2016.8.1-swarm.jar[Keycloak Server Uberjar]
+
+==== Application Performance Management - Hawkular
+
+We will be using the application performance management, distributed tracing and Business Transaction Management capabilities that are available with `https://github.com/hawkular/hawkular-apm[Hawkulat APM]`
+
+To install  Hawkular APM you Download:
+
+- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-agent.jar[Hawkualr APM Agent]
+- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar [Hawkular APM Server]
 
 === Prepare your environment
 you will need to install the following on your machine:
@@ -44,7 +62,6 @@ you will need to install the following on your machine:
 === Start Forge
 
 image::images/forge-start.png[]
-
 
 === Setup Wildfly-Swarm plugins
 [source]
@@ -95,11 +112,11 @@ keycloak-install-client-json --server-url http://localhost:9000/auth --realm mas
 ----
 
 === Putting it all together
-You can run all the above commands from a single script. [link]
+You can run all the above commands from a single script. `link:wsfk-hol.fsh[wsfk-hol.fsh]`
 
 [source]
 ----
-run hands-on-lab.fsh
+run wsfk-hol.fsh
 ----
 
 Let's generate the `uberjar` and run, using either ways:
