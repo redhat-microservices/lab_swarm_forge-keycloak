@@ -30,7 +30,7 @@ image::images/msademo-greenfield-workflow.png[]
 
 == The Use case for this Lab
 
-== Let's get started
+== Configure your environment and core services
 In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you can run the full `Forge` script script available link:wsfk-hol.fsh[here].
 
 === Setup Core Services
@@ -49,9 +49,9 @@ We will be using the application performance management, distributed tracing and
 To install  Hawkular APM you Download:
 
 - [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-agent.jar[Hawkualr APM Agent]
-- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar [Hawkular APM Server]
+- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar[Hawkular APM Server]
 
-=== Prepare your environment
+=== Tools, SDK and IDEs
 you will need to install the following on your machine:
 
 - [x] http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[JDK 1.8]
@@ -62,6 +62,13 @@ you will need to install the following on your machine:
 === Start Forge
 
 image::images/forge-start.png[]
+
+=== Start Core Services
+
+==== Keycloack
+==== Hawkular
+
+== Let's build our services
 
 === Setup Wildfly-Swarm plugins
 [source]
@@ -147,3 +154,22 @@ Security:yes [KeyCloak Fraction] : yes : yes
 Logging:::
 
 :===
+
+=== Polyglot microservices
+
+In this section we will be taking some of our services and implementing them using Node.js, Vert.X and Spring Boot.
+We want them to be able to communicate with others services, remain secured and being monitored.
+
+=== Integration
+
+Explore Camel here
+
+=== Deploying on Openshift
+
+While this Lab has been focused on single machine/single instance development, there are critical capabilities that needs to be addressed if we want to deploy our solutions in productions.
+This section aims at listing those capabilities that comes for free in a PaaS environment like Openshift. We will demonstrate how our application can benefit from them.
+
+==== Load balancing and fail-over
+==== Discovery
+==== API Mgt
+==== Logging
