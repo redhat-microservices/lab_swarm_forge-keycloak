@@ -49,7 +49,7 @@ We will be using the application performance management, distributed tracing and
 To install  Hawkular APM you Download:
 
 - [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-agent.jar[Hawkualr APM Agent]
-- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar [Hawkular APM Server]
+- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar[Hawkular APM Server]
 
 === Prepare your environment
 you will need to install the following on your machine:
