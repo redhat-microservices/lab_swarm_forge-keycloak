@@ -19,7 +19,7 @@ wildfly-swarm-detect-fractions --build  --depend
 # Configure KeyCloak authentication
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
-security-add-constraint --web-resource-name Customer --url-patterns /rest/${the-entity} --security-roles user
+security-add-constraint --web-resource-name Customer --url-patterns /rest/books --security-roles user
 
 # Install the keycloak.json file to WEB-INF
 keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
