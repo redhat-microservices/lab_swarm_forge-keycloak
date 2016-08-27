@@ -23,19 +23,15 @@ toc::[]
 While a microservices architecture doesn't mandate using a specific language for implementation we decided here to take a pragmatic approach, we will choose the `Java EE` path with `Wildfly-Swarm`, then later in our demo, once we completed our basic app, we will explore how these services can interact with other services that may be implemented using a different technology such as `Spring Boot`, `Vert.X`, `Node.JS` etc...
 But let's keep that for the last section.
 
-image::images/msademo-overall-workflow.png[]
-
 === Workflow 
 As explained earlier this path will be implemented using Wildfly-Swarm. If you want to see how to work with other languages, skip to the last section.
 
 image::images/msademo-greenfield-workflow.png[]
 
-
-
 == The Use case for this Lab
 
 == Let's get started
-In this section we will be following the greenfield path.
+In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you cna run the full `Forge` script script availabel wsfk-hol.fsh[here].
 
 === Prepare your environment
 you will need to install the following on your machine:
