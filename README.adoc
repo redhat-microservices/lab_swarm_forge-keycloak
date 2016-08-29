@@ -31,19 +31,19 @@ image::images/msademo-greenfield-workflow.png[]
 == The Use case for this Lab
 
 * Create a bookstore app with Forge that contains :
-A book/Author model (title / author name)
-A SellingPoint Object containing location info (latitude / longitude)
-This part with be extracted later as a swarm service
-Scaffold AngularJS front end for this app
-Initially deploy this app as an "old school" WAR on WF
-"explode" the app into 3 different swarm apps :
-A book/author service
-A Selling point service
-A front end (an "empty" swarm app containing just a web-app folder, ideally this should be a standalone webapp running nodejs, but is a bit out of scope for JavaOne audience)
-"secure" the 3 swarm apps with KeyCloak
-Here we introduce a 4th swarm app with the KeyCloak server
-Add Hibernate Search fraction to the Selling Point service and show geospatial queries
-Bonus point could be showing HB Search integration with Elastic Search
+** A book/Author model (title / author name)
+** A SellingPoint Object containing location info (latitude / longitude)
+*** This part with be extracted later as a swarm service
+* Scaffold AngularJS front end for this app
+* Initially deploy this app as an "old school" WAR on WF
+* "explode" the app into 3 different swarm apps :
+** A book/author service
+** A Selling point service
+** A front end (an "empty" swarm app containing just a web-app folder, ideally this should be a standalone webapp running nodejs, but is a bit out of scope for JavaOne audience)
+* "secure" the 3 swarm apps with KeyCloak
+** Here we introduce a 4th swarm app with the KeyCloak server
+* Add Hibernate Search fraction to the Selling Point service and show geospatial queries
+* Bonus point could be showing HB Search integration with Elastic Search
 
 == Configure your environment and core services
 In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you can run the full `Forge` script script available link:wsfk-hol.fsh[here].
