@@ -5,7 +5,7 @@ services:
 
 before_install:            
   - mkdir -p output
-  - docker pull cmoullliard/docker-asciidoctor
+  - docker pull cmoulliard/docker-asciidoctor
 
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html cmoulliard/docker-asciidoctor asciidoctor -a stylesheet=$STYLES/foundation.css -D /documents/output *.adoc      
