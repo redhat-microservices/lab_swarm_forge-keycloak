@@ -13,7 +13,7 @@ before_install:
   - docker pull cmoulliard/docker-asciidoctor:0.1
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html cmoulliard/docker-asciidoctor:0.1 asciidoctor -a stylesheet=$STYLES/foundation.css -D /documents/output *.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html cmoulliard/docker-asciidoctor:0.1 asciidoctor -a stylesheet=$STYLES/foundation.css -a allow-uri-read-D /documents/output *.adoc
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf cmoulliard/docker-asciidoctor:0.1 asciidoctor-pdf -D /documents/output *.adoc
 
 after_error: 

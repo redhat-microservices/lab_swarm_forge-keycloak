@@ -1,5 +1,3 @@
-:allow-uri-read:
-
 = Build Status
 
 Status of the generation of the HTML/PDF files of this project
