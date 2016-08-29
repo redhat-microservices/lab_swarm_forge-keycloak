@@ -1,6 +1,6 @@
 env:
   global:
-    # Docker
+    # Asciidoctor STYLES directory
     - STYLES=/asciidoctor-styles/stylesheets
 
 sudo: required
