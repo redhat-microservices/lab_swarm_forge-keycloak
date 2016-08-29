@@ -4,7 +4,7 @@
 :toc-title: Table of Content
 :numbered:
 
-= Hands On Lab with Wildfly Swarm, Forge and Keycloak
+= Hands On Lab with Wildfly Swarm, Forge & Keycloak
 
 toc::[]
 
