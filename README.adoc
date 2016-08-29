@@ -6,7 +6,7 @@
 
 = Hands On Lab with Wildfly Swarm, Forge & Keycloak
 
-[![Build Status](https://travis-ci.org/redhat-microservices/lab_swarm_forge-keycloak.svg?branch=master)](https://travis-ci.org/redhat-microservices/lab_swarm_forge-keycloak)
+image:https://travis-ci.org/redhat-microservices/lab_swarm_forge-keycloak.svg?branch=master["Build Status", link="https://travis-ci.org/redhat-microservices/lab_swarm_forge-keycloak"]
 
 toc::[]
 
