@@ -55,6 +55,7 @@ wildfly-swarm-add-fraction --fractions hibernate-search
 # create Book entity and relationship with Author
 jpa-new-entity --named Book
 jpa-new-field --named isbn
+java-add-annotation --annotation org.hibernate.search.annotations.Field --on-property isbn
 
 # create Book entity and relationship with Author
 jpa-new-entity --named SellingPoint
@@ -70,3 +71,6 @@ java-add-annotation --annotation org.hibernate.search.annotations.IndexedEmbedde
 
 scaffold-generate --provider AngularJS --generate-rest-resources --targets org.sellingPoint.model.*
 wildfly-swarm-detect-fractions --depend --build
+# enable CORS
+rest-new-cross-origin-resource-sharing-filter
+
