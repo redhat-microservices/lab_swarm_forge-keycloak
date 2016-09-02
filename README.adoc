@@ -55,7 +55,7 @@ image::images/hol/Workflow.png[]
 
 === Architecture Pattern
 
-image::images/hol/Architecture Pattern.png[]
+image::images/hol/Architecture%20Pattern.png[]
 
 == Configure your environment and core services
 In this section we will be following the steps as defined in the Overview section. The steps can be followed an executed as individual pieces or you can run the full `Forge` script script available link:wsfk-hol.fsh[here].
