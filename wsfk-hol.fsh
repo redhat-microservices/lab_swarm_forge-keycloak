@@ -74,3 +74,9 @@ wildfly-swarm-detect-fractions --depend --build
 # enable CORS
 rest-new-cross-origin-resource-sharing-filter
 
+cd #
+
+# ----------------  SellingPoint Service [:8083/auth] ---------------
+# create Keycloak Server service
+
+project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http-port 8083 --fractions keycloak-server
