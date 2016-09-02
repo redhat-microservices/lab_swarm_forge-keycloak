@@ -222,7 +222,16 @@ In `src/main/java/org/sellingPoint/rest/SellingPointEndpoint.java` add this meth
 
 === Secure the endpoints with KeyCloak
 
-IMPORTANT: You need a Keycloak server running on port 9000 and make sure that the Direct Access Grants Enabled option is enabled for this client
+==== Create Swarm Keycloak Server
+
+[source]
+----
+project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http-port 8083 --fractions keycloak-serve
+----
+
+==== Configure Keycloak Server
+
+TODO
 
 [source]
 ----
