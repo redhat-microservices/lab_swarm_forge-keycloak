@@ -31,7 +31,7 @@ scaffold-generate --provider AngularJS --generate-rest-resources --targets org.b
 # No change in your code is needed. Only Maven coordinate requires updating.
 
 wildfly-swarm-setup
-wildfly-swarm-detect-fractions --depend
+wildfly-swarm-detect-fractions --depend --build
 
 # enable CORS
 rest-new-cross-origin-resource-sharing-filter
