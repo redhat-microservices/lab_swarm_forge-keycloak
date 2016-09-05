@@ -195,28 +195,24 @@ rest-new-cross-origin-resource-sharing-filter
 
 In `src/main/java/org/sellingPoint/rest/SellingPointEndpoint.java` add this method : 
 
-[source]
+[source,java]
 ----
-	@GET
-	@Path("/inrange/{isbn}")
-	@Produces("application/json")
-	public List<SellingPoint> listByLocation(@PathParam("isbn") String isbn, @QueryParam("latitude") Double latitude,
-			@QueryParam("longitude") Double longitude) {
-		FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
-		QueryBuilder builder = fullTextEntityManager.getSearchFactory().buildQueryBuilder()
-				.forEntity(SellingPoint.class).get();
-
-		org.apache.lucene.search.Query luceneQuery = builder
-
-				.spatial().within(5, Unit.KM).ofLatitude(latitude).andLongitude(longitude).createQuery();
-		org.apache.lucene.search.Query keyWordQuery = builder
-
-				.keyword().onField("books.isbn").matching(isbn).createQuery();
-		Query boolQuery = builder.bool().must(luceneQuery).must(keyWordQuery).createQuery();
-		javax.persistence.Query hibQuery = fullTextEntityManager.createFullTextQuery(boolQuery, SellingPoint.class);
-
-		return hibQuery.getResultList();
-	}
+@GET
+@Path("/inrange/{isbn}")
+@Produces("application/json")
+public List<SellingPoint> listByLocation(@PathParam("isbn") String isbn, @QueryParam("latitude") Double latitude,
+		@QueryParam("longitude") Double longitude) {
+	FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
+	QueryBuilder builder = fullTextEntityManager.getSearchFactory().buildQueryBuilder()
+		.forEntity(SellingPoint.class).get();
+	org.apache.lucene.search.Query luceneQuery = builder
+		.spatial().within(5, Unit.KM).ofLatitude(latitude).andLongitude(longitude).createQuery();
+	org.apache.lucene.search.Query keyWordQuery = builder
+		.keyword().onField("books.isbn").matching(isbn).createQuery();
+	Query boolQuery = builder.bool().must(luceneQuery).must(keyWordQuery).createQuery();
+	javax.persistence.Query hibQuery = fullTextEntityManager.createFullTextQuery(boolQuery, SellingPoint.class);
+	return hibQuery.getResultList();
+}
 ----
 
 
