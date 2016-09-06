@@ -77,10 +77,16 @@ rest-new-cross-origin-resource-sharing-filter
 
 cd $PWD
 
+#---------------- Update front end to consume Selling points from new service
+cp  frontend_assets/sellingpoint/search.html bookstorefrontend/src/main/webapp/views/SellingPoint
+cp  frontend_assets/sellingpoint/searchSellingPointController.js bookstorefrontend/src/main/webapp/scripts/controllers
+cp  frontend_assets/sellingpoint/SellingPointFactory.js bookstorefrontend/src/main/webapp/scripts/services
+
+
 # ----------------  KeycloakServer [:8083/auth] ---------------
 # create Keycloak Server service
 
 project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http-port 8083 --fractions keycloak-server
 
-build 
+build
 cd $PWD
