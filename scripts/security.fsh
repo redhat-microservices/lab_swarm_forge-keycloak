@@ -6,7 +6,7 @@ cp bookservice_assets/keycloak.json bookservice/src/main/webapp/WEB-INF
 cd bookservice
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
-security-add-constraint --web-resource-name Book --url-patterns /rest --security-roles user
+security-add-constraint --web-resource-name Book --url-patterns /rest/* --security-roles user
 rm src/main/java/org/bookservice/rest/NewCrossOriginResourceSharingFilter.java
 
 # redeploy and make sure the endpoint is protected by accessing directly its URL (i.e : localhost:8080/rest/books should show unauthorized)
@@ -31,7 +31,7 @@ cp sellingpoint_assets/keycloak.json sellingpoint/src/main/webapp/WEB-INF
 cd sellingpoint
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
-security-add-constraint --web-resource-name SellingPoint --url-patterns /rest --security-roles user
+security-add-constraint --web-resource-name SellingPoint --url-patterns /rest/* --security-roles user
 rm src/main/java/org/sellingPoint/rest/NewCrossOriginResourceSharingFilter.java
 
 # SellingPoint is now secured.
