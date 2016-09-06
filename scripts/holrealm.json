@@ -1,0 +1,66 @@
+{
+    "realm": "holdemo",
+    "enabled": true,
+    "accessTokenLifespan": 60,
+    "accessCodeLifespan": 60,
+    "accessCodeLifespanUserAction": 300,
+    "ssoSessionIdleTimeout": 600,
+    "ssoSessionMaxLifespan": 36000,
+    "sslRequired": "external",
+    "registrationAllowed": false,
+    "privateKey": "MIICXQIBAAKBgQCtvV0qb8+A0pxKoRpToHhc6srY4PyoX/pwgmR7HyV0PeUw/DgyyCI1Wmvw3T15kWw7Q84gX8IL0wDNtfmbhMPmz5umVeul3LzacjU9qfDqG96Wirn7+5Je1VieH5wRX3mtyQ2TboRVpjFD0fwd063FYOtCynfDSS0Uo6YgjWs8QwIDAQABAoGBAKyDJOkoUJAHkC0CPpPe+OS6NmSXMgk2FAR3VLJ0QMplUxgKuPqjgmQbvqZR5+K4JRHLx/aZXqJDB786+/gSIjl+oZqIrtthy0oGhGSjjcnClmzuH4vs6mPOyhUfd+6g5wZg+KOt5N/h1LuiYfRuObOoz4vDv/Lf6OLYnfvsiLyRAkEA5Mxb/w+72kLmgmOrlFKnn+bt0ZxpIxFom5Rsb+uT9AyBLiqegG3sdpS+zjqiQDXLseGl3fNR1u5W60vm76QGPQJBAMJlQdExTAi6kLj2JvJSIciTut1OaO5mKSJ2PxpZ7Rok1MRezcjowwcKsF7iWhTXUd2qjs29LzjfcPpagZUi9H8CQGScZPwFXDL/ZkQCNko0CpgrQXsCT81m81wu6XxR2K7h7NBzV13ceLYwdLNVX1HjFh6zvm+aduuPxVMU/ol01HUCQGCrFdW/W/4jOICh97Ac46vous3+hfO3XdFDWBH0khGkKyITuuWjygggaqBkk0M16AIBJM5uu6LeikIU68eMAGUCQQCuT+vDjqlIm9hgxHHiX7/Yfy5eCwr9TyuR9lx+WpjmNgxeK9ftd5Cq1iFTeUnm9kTteJYkU/JuuKr3PsgnCY8D",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCtvV0qb8+A0pxKoRpToHhc6srY4PyoX/pwgmR7HyV0PeUw/DgyyCI1Wmvw3T15kWw7Q84gX8IL0wDNtfmbhMPmz5umVeul3LzacjU9qfDqG96Wirn7+5Je1VieH5wRX3mtyQ2TboRVpjFD0fwd063FYOtCynfDSS0Uo6YgjWs8QwIDAQAB",
+    "requiredCredentials": [ "password" ],
+    "users" : [
+        {
+            "username" : "sebi",
+            "enabled": true,
+            "email" : "sebi@sebi.com",
+            "firstName": "Sebastien",
+            "lastName": "Blanc",
+            "credentials" : [
+                { "type" : "password",
+                    "value" : "password" }
+            ],
+            "realmRoles": [ "user", "offline_access"  ],
+            "clientRoles": {
+                "account": [ "manage-account" ]
+            }
+        }
+    ],
+    "roles" : {
+        "realm" : [
+            {
+                "name": "user",
+                "description": "User privileges"
+            },
+            {
+                "name": "admin",
+                "description": "Administrator privileges"
+            }
+        ]
+    },
+    "clients": [
+
+        {
+            "clientId": "frontend",
+            "enabled": true,
+            "publicClient": true,
+            "baseUrl": "http://localhost:8081/index.html",
+            "redirectUris": [
+                "http://localhost:8081/*"
+            ]
+        },
+        {
+            "clientId": "bookstore-service",
+            "enabled": true,
+            "bearerOnly": true
+        }
+        ,
+        {
+            "clientId": "sellingpoint-service",
+            "enabled": true,
+            "bearerOnly": true
+        }
+    ]
+}
