@@ -67,7 +67,7 @@ We will be using the purposely build Keycloak Wildfly-Swarm `uberjar`.
 
 Download:
 
-- [x] http://central.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2016.8.1/keycloak-2016.8.1-swarm.jar[Keycloak Server Uberjar]
+- [x] http://central.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2016.9/keycloak-2016.9-swarm.jar[Keycloak Server Uberjar]
 
 ==== Application Performance Management - Hawkular
 
