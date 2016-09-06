@@ -5,4 +5,5 @@
   "auth-server-url": "http://localhost:8082/auth",
   "ssl-required": "external",
   "resource": "sellingpoint-service"
+  "enable-cors" : true
 }
