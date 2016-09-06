@@ -327,7 +327,7 @@ insert into SellingPoint_Book (SellingPoint_id, books_id) values (2000,1000);
 insert into SellingPoint_Book (SellingPoint_id, books_id) values (2000,1001);
 ----
 
-For both of these scripts, make sure they have the name `import.sql` and put them in `main/src/resources` for each of the projects, they will be run at startup. 
+For both of these scripts, make sure they have the name `import.sql` and put them in `src/main/resources` for each of the projects, they will be run at startup. 
 
 == Extend the Demo with more capabilities
 Now we have seen how to implement basic set of services, secure and monitor them, we would like to go one step further with moving those from traditional bare-metal environment to leverage new deployment model and targets. In the table below we explain briefly what capabilities are available in the different target environment to help you understand what you get for free or what you will to bring yourself depending on where you choose to deploy your services.
