@@ -227,17 +227,50 @@ project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http
 
 ==== Configure Keycloak Server
 
-TODO
+* Browse to the keycloak console `localhost:8083/auth` , you will have to create initially an Admin user
+* Import the demo realm `holrealm.json` (located inside the `scripts` folder of this repo) 
+
+==== Secure the services
+
+(Be sure to start from the `scripts` folder)
 
 [source]
 ----
-# Configure KeyCloak authentication
+# secure the bookService
+
+cp bookservice_assets/keycloak.json bookservice/src/main/webapp/WEB-INF
+cd bookservice
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
-security-add-constraint --web-resource-name Book --url-patterns /rest/books --security-roles user
+security-add-constraint --web-resource-name Book --url-patterns /rest --security-roles user
+rm src/main/java/org/bookservice/rest/NewCrossOriginResourceSharingFilter.java
 
-# Install the keycloak.json file to WEB-INF
-keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
+# redeploy and make sure the endpoint is protected by accessing directly its URL (i.e : localhost:8080/rest/books should show unauthorized)
+
+
+cd ~~/..
+
+# Secure the frontend
+cp  frontend_assets/keycloak.json bookstorefrontend/src/main/webapp
+cp  frontend_assets/keycloak.js bookstorefrontend/src/main/webapp/scripts/vendor
+cp  frontend_assets/app.js bookstorefrontend/src/main/webapp/scripts
+cp  frontend_assets/app.html bookstorefrontend/src/main/webapp
+cd bookstorefrontend
+
+# Redeploy the frontend, it should now redirect to the keycloak login screen
+
+cd ~~/..
+
+# secure the sellingPoint
+
+cp sellingpoint_assets/keycloak.json sellingpoint/src/main/webapp/WEB-INF
+cd sellingpoint
+wildfly-swarm-add-fraction --fractions keycloak
+security-add-login-config --auth-method KEYCLOAK --security-realm master
+security-add-constraint --web-resource-name SellingPoint --url-patterns /rest --security-roles user
+rm src/main/java/org/sellingPoint/rest/NewCrossOriginResourceSharingFilter.java
+
+# SellingPoint is now secured.
 ----
 
 === Enable Application Performance Monitoring
@@ -248,7 +281,7 @@ keycloak-install-client-json --server-url http://localhost:9000/auth --realm mas
 ----
 
 === Putting it all together
-You can run all the above commands from a single script. `link:wsfk-hol.fsh[wsfk-hol.fsh]`
+You can run all the above commands from a single script. `link:scripts/wsfk-hol.fsh[wsfk-hol.fsh]`
 
 [source]
 ----
