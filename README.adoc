@@ -92,7 +92,7 @@ image::images/forge-start.png[]
 
 === Start Core Services
 
-==== Keycloack
+==== Keycloak
 ==== Hawkular
 
 == Let's build our services
