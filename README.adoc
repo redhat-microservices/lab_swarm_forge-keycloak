@@ -228,11 +228,11 @@ project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http
 ==== Configure Keycloak Server
 
 * Browse to the keycloak console `localhost:8083/auth` , you will have to create initially an Admin user
-* Import the demo realm `holrealm.json` (located inside the `scripts` folder of this repo) 
+* Import `link:scripts/holrealm.json[the demo realm]`
 
 ==== Secure the services
 
-(Be sure to start from the `scripts` folder)
+(Be sure to start from the `link:scripts/[scripts]` folder)
 
 [source]
 ----
