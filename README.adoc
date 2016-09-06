@@ -229,6 +229,7 @@ project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http
 
 * Browse to the keycloak console `localhost:8083/auth` , you will have to create initially an Admin user
 * Import `link:scripts/holrealm.json[the demo realm]`
+* This realm create a test user : username: `sebi` / password : `password` 
 
 ==== Secure the services
 
