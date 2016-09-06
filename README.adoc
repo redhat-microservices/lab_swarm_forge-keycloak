@@ -222,6 +222,19 @@ public List<SellingPoint> listByLocation(@PathParam("isbn") String isbn, @QueryP
 }
 ----
 
+=== Update Frontend App to consume the new SellingPoint Service 
+
+[source, bash]
+----
+cp  frontend_assets/sellingpoint/search.html bookstorefrontend/src/main/webapp/views/SellingPoint
+cp  frontend_assets/sellingpoint/searchSellingPointController.js bookstorefrontend/src/main/webapp/scripts/controllers
+cp  frontend_assets/sellingpoint/SellingPointFactory.js bookstorefrontend/src/main/webapp/scripts/services
+----
+
+Now, from the `http://localhost:8081/app.html#/SellingPoints` you can search a specific Book by its `isbn` in a radius of 5 Km around you (your geolocation is automatically retrieved but you can override it on the search form). 
+
+To get back at least one result, make sure that your boostrap data contains at least a SellingPoint that is your area or use the SellingPoint embedded frontend `http://localhost:8083/app.html`.  
+
 
 === Secure the endpoints with KeyCloak
 
