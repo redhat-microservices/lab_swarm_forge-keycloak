@@ -67,7 +67,7 @@ jpa-new-field --named latitude --type Double
 jpa-new-field --named longitude --type Double
 java-add-annotation --annotation org.hibernate.search.annotations.Longitude --on-property longitude
 java-add-annotation --annotation org.hibernate.search.annotations.Latitude --on-property latitude
-jpa-new-field --named books --type org.sellingPoint.model.Book --relationship-type Many-to-Many
+jpa-new-field --named books --type org.sellingPoint.model.Book --relationship-type Many-to-Many --fetch-type EAGER
 java-add-annotation --annotation org.hibernate.search.annotations.IndexedEmbedded --on-property books
 
 scaffold-generate --provider AngularJS --generate-rest-resources --targets org.sellingPoint.model.*
