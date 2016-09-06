@@ -2,6 +2,8 @@
 # ----------------  Book Service [:8080/rest] ---------------
 project-new --named bookservice --stack JAVA_EE_7
 
+# add the boostrap data
+cp ../bookservice_assets/import.sql src/main/resources
 # create Author entity
 jpa-new-entity --named Author
 jpa-new-field --named name
@@ -50,7 +52,7 @@ cd $PWD
 # create SellingPoint service
 project-new --named sellingPoint --stack JAVA_EE_7 --type wildfly-swarm --http-port 8082
 wildfly-swarm-add-fraction --fractions hibernate-search
-
+cp ../sellingpoint_assets/import.sql src/main/resources
 # create Book entity and relationship with Author
 jpa-new-entity --named Book
 jpa-new-field --named isbn
