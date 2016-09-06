@@ -153,9 +153,11 @@ rest-new-cross-origin-resource-sharing-filter
 ----
 # ----------------  Book Store Web Front End [:8081/rest] ---------------
 # Now we want to create front end swarm service to access BookService
+
 project-new --named bookstorefrontend --stack JAVA_EE_7 --type wildfly-swarm --http-port 8081
 wildfly-swarm-add-fraction --fractions undertow
 mv ../bookservice/src/main/webapp/ src/main/
+
 # manual step : change the url in the angular services to point
 # to http://localhost:8080/rest/ in src/main/webapp/scripts/services
 ----
@@ -166,15 +168,18 @@ mv ../bookservice/src/main/webapp/ src/main/
 ----
 # ----------------  SellingPoint Service [:8082/rest] ---------------
 # create SellingPoint service
+
 project-new --named sellingPoint --stack JAVA_EE_7 --type wildfly-swarm --http-port 8082
 wildfly-swarm-add-fraction --fractions hibernate-search
 
 # create Book entity and relationship with Author
+
 jpa-new-entity --named Book
 jpa-new-field --named isbn
 java-add-annotation --annotation org.hibernate.search.annotations.Field --on-property isbn
 
 # create Book entity and relationship with Author
+
 jpa-new-entity --named SellingPoint
 jpa-new-field --named name
 java-add-annotation --annotation org.hibernate.search.annotations.Indexed
@@ -188,7 +193,9 @@ java-add-annotation --annotation org.hibernate.search.annotations.IndexedEmbedde
 
 scaffold-generate --provider AngularJS --generate-rest-resources --targets org.sellingPoint.model.*
 wildfly-swarm-detect-fractions --depend --build
+
 # enable CORS
+
 rest-new-cross-origin-resource-sharing-filter
 ----
 === Add geospatial endpoint in SellingPoint 
@@ -241,13 +248,15 @@ project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http
 
 cp bookservice_assets/keycloak.json bookservice/src/main/webapp/WEB-INF
 cd bookservice
+
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
 security-add-constraint --web-resource-name Book --url-patterns /rest --security-roles user
+
+# The CORS filter is no longer needed, as KeyCloak will handle it from now
 rm src/main/java/org/bookservice/rest/NewCrossOriginResourceSharingFilter.java
 
 # redeploy and make sure the endpoint is protected by accessing directly its URL (i.e : localhost:8080/rest/books should show unauthorized)
-
 
 cd ~~/..
 
@@ -307,7 +316,7 @@ or via your IDE with the `Main` class.
 IMPORTANT: For both of these scripts, make sure they have the name `import.sql` and put them in `src/main/resources` for each of the projects, they will be run at startup. 
 
 For the BookService : 
-[source]
+[source,sql]
 ----
 insert into Author  (id, name, version) values (1000,'Seb',0);
 insert into Author  (id, name, version) values (1001,'George',0);
@@ -317,7 +326,7 @@ insert into Book  (id, title, isbn, author_id, version) values (1000,'Swarm for 
 ----
 
 For the SellingPoint Service : 
-[source]
+[source,sql]
 ----
 insert into Book (id, isbn, version) values (1000, '1000',0);
 insert into Book (id, isbn, version) values (1001, '1001',0);
