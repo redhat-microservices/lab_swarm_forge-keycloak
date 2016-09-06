@@ -30,7 +30,7 @@ var keycloak = new Keycloak('keycloak.json');
 
 angular.element(document).ready(function() {
   keycloak.init({ onLoad: 'login-required' }).success(function () {
-    angular.bootstrap(document, ["myapp"]);
+    angular.bootstrap(document, ["bookservice"]);
   }).error(function () {
     console.log("ERROR");
   });
