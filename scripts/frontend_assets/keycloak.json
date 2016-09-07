@@ -1,7 +1,7 @@
 {
   "realm": "holdemo",
   "realm-public-key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCtvV0qb8+A0pxKoRpToHhc6srY4PyoX/pwgmR7HyV0PeUw/DgyyCI1Wmvw3T15kWw7Q84gX8IL0wDNtfmbhMPmz5umVeul3LzacjU9qfDqG96Wirn7+5Je1VieH5wRX3mtyQ2TboRVpjFD0fwd063FYOtCynfDSS0Uo6YgjWs8QwIDAQAB",
-  "auth-server-url": "http://localhost:8082/auth",
+  "auth-server-url": "http://localhost:8083/auth",
   "ssl-required": "external",
   "resource": "frontend",
   "public-client": true
