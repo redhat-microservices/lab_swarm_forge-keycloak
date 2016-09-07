@@ -63,20 +63,38 @@ In this section we will be following the steps as defined in the Overview sectio
 === Setup Core Services
 
 ==== Security - Keycloak
-We will be using the purposely build Keycloak Wildfly-Swarm `uberjar`.
-
-Download:
-
-- [x] http://central.maven.org/maven2/org/wildfly/swarm/servers/keycloak/2016.9/keycloak-2016.9-swarm.jar[Keycloak Server Uberjar]
+In this session we will be using the purposely build Keycloak Wildfly-Swarm `uberjar`.
 
 ==== Application Performance Management - Hawkular
 
 We will be using the application performance management, distributed tracing and Business Transaction Management capabilities that are available with `https://github.com/hawkular/hawkular-apm[Hawkulat APM]`
 
-To install  Hawkular APM you Download:
+To install, download and unpack the Hawkular APM distribution. The distribution includes both the server and the agent.
 
-- [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-agent.jar[Hawkualr APM Agent]
 - [x] https://github.com/hawkular/hawkular-apm/releases/download/0.10.0.Final/hawkular-apm-dist-0.10.0.Final.tar[Hawkular APM Server]
+
+Create an application user with "read-write,read-only" roles.
+
+Once user is created, start the server with a port offset to avoid conflict with the other services:
+
+[source]
+----
+$APM/bin/standalone.sh -Djboss.socket.binding.port-offset=100
+----
+
+Then before running any of the services, in the command shell run:
+
+[source]
+----
+. $APM/apm/setenv.sh <port>   (e.g. 8180)
+----
+
+and then run the service with `$JAVA_OPTS` supplied:
+
+[source]
+----
+java $JAVA_OPTS -jar ./target/mylab-swarm.jar
+----
 
 === Tools, SDK and IDEs
 you will need to install the following on your machine:
@@ -198,9 +216,9 @@ wildfly-swarm-detect-fractions --depend --build
 
 rest-new-cross-origin-resource-sharing-filter
 ----
-=== Add geospatial endpoint in SellingPoint 
+=== Add geospatial endpoint in SellingPoint
 
-In `src/main/java/org/sellingPoint/rest/SellingPointEndpoint.java` add this method : 
+In `src/main/java/org/sellingPoint/rest/SellingPointEndpoint.java` add this method :
 
 [source,java]
 ----
@@ -222,7 +240,7 @@ public List<SellingPoint> listByLocation(@PathParam("isbn") String isbn, @QueryP
 }
 ----
 
-=== Update Frontend App to consume the new SellingPoint Service 
+=== Update Frontend App to consume the new SellingPoint Service
 
 [source, bash]
 ----
@@ -231,9 +249,9 @@ cp  frontend_assets/sellingpoint/searchSellingPointController.js bookstorefronte
 cp  frontend_assets/sellingpoint/SellingPointFactory.js bookstorefrontend/src/main/webapp/scripts/services
 ----
 
-Now, from the `http://localhost:8081/app.html#/SellingPoints` you can search a specific Book by its `isbn` in a radius of 5 Km around you (your geolocation is automatically retrieved but you can override it on the search form). 
+Now, from the `http://localhost:8081/app.html#/SellingPoints` you can search a specific Book by its `isbn` in a radius of 5 Km around you (your geolocation is automatically retrieved but you can override it on the search form).
 
-To get back at least one result, make sure that your boostrap data contains at least a SellingPoint that is your area or use the SellingPoint embedded frontend `http://localhost:8083/app.html`.  
+To get back at least one result, make sure that your boostrap data contains at least a SellingPoint that is your area or use the SellingPoint embedded frontend `http://localhost:8083/app.html`.
 
 
 === Secure the endpoints with KeyCloak
@@ -249,7 +267,7 @@ project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http
 
 * Browse to the keycloak console `localhost:8083/auth` , you will have to create initially an Admin user
 * Import `link:scripts/holrealm.json[the demo realm]`
-* This realm create a test user : username: `sebi` / password : `password` 
+* This realm create a test user : username: `sebi` / password : `password`
 
 ==== Secure the services
 
@@ -326,19 +344,19 @@ or via your IDE with the `Main` class.
 
 === Bootstrap data
 
-IMPORTANT: For both of these scripts, make sure they have the name `import.sql` and put them in `src/main/resources` for each of the projects, they will be run at startup. 
+IMPORTANT: For both of these scripts, make sure they have the name `import.sql` and put them in `src/main/resources` for each of the projects, they will be run at startup.
 
-For the BookService : 
+For the BookService :
 [source,sql]
 ----
 insert into Author  (id, name, version) values (1000,'Seb',0);
 insert into Author  (id, name, version) values (1001,'George',0);
 
 insert into Book  (id, title, isbn, author_id, version) values (1000,'Forge for Pro', '1001', 1000, 0);
-insert into Book  (id, title, isbn, author_id, version) values (1000,'Swarm for Pro', '1002', 1001, 0);
+insert into Book  (id, title, isbn, author_id, version) values (1001,'Swarm for Pro', '1002', 1001, 0);
 ----
 
-For the SellingPoint Service : 
+For the SellingPoint Service :
 [source,sql]
 ----
 insert into Book (id, isbn, version) values (1000, '1000',0);
