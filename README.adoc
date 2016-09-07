@@ -89,7 +89,7 @@ Then before running any of the services, in the command shell run:
 . $APM/apm/setenv.sh <port>   (e.g. 8180)
 ----
 
-and then run the service with `$JAVA_OPTS` supplied:
+Once you have build the services later in this lab, run the service with `$JAVA_OPTS` supplied:
 
 [source]
 ----
@@ -107,11 +107,6 @@ you will need to install the following on your machine:
 === Start Forge
 
 image::images/forge-start.png[]
-
-=== Start Core Services
-
-==== Keycloak
-==== Hawkular
 
 == Let's build our services
 
