@@ -223,6 +223,12 @@ In `src/main/java/org/sellingPoint/rest/SellingPointEndpoint.java` add this meth
 public List<SellingPoint> listByLocation(@PathParam("isbn") String isbn, @QueryParam("latitude") Double latitude,
 		@QueryParam("longitude") Double longitude) {
 	FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
+	try {
+        fullTextEntityManager.createIndexer().startAndWait();
+    } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }	
 	QueryBuilder builder = fullTextEntityManager.getSearchFactory().buildQueryBuilder()
 		.forEntity(SellingPoint.class).get();
 	org.apache.lucene.search.Query luceneQuery = builder
