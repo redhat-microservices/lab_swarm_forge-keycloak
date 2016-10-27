@@ -21,7 +21,8 @@ jpa-new-field --named latitude --type Double
 jpa-new-field --named longitude --type Double
 
 # scaffold and create endpoints
-scaffold-generate --provider AngularJS --generate-rest-resources --targets org.bookservice.model.*
+rest-generate-endpoints-from-entities --targets org.bookservice.model.*
+scaffold-generate --provider AngularJS --targets org.bookservice.model.*
 
 # At this stage you can build and deploy a regular JAR
 # and deploy to a Java EE7 compliant server like EAP 7 and Wildfly 10
@@ -73,7 +74,8 @@ java-add-annotation --annotation org.hibernate.search.annotations.Latitude --on-
 jpa-new-field --named books --type org.sellingPoint.model.Book --relationship-type Many-to-Many --fetch-type EAGER
 java-add-annotation --annotation org.hibernate.search.annotations.IndexedEmbedded --on-property books
 
-scaffold-generate --provider AngularJS --generate-rest-resources --targets org.sellingPoint.model.*
+rest-generate-endpoints-from-entities --targets org.sellingPoint.model.*
+scaffold-generate --provider AngularJS --targets org.sellingPoint.model.*
 wildfly-swarm-detect-fractions --depend --build
 # enable CORS
 rest-new-cross-origin-resource-sharing-filter
