@@ -171,8 +171,14 @@ project-new --named bookstorefrontend --stack JAVA_EE_7 --type wildfly-swarm --h
 wildfly-swarm-add-fraction --fractions undertow
 mv ../bookservice/src/main/webapp/ src/main/
 
-# manual step : change the url in the angular services to point
+# Keep empty src/main/webapp/WEB-INF
+mkdir ../bookservice/src/main/webapp
+mkdir ../bookservice/src/main/webapp/WEB-INF
+
+# change the url in the angular services to point
 # to http://localhost:8080/rest/ in src/main/webapp/scripts/services
+cp  ../frontend_assets/services/AuthorFactory.js src/main/webapp/scripts/services/
+cp  ../frontend_assets/services/BookFactory.js src/main/webapp/scripts/services/
 ----
 
 === Create The SellingPoint service Project in Forge
@@ -307,8 +313,8 @@ cd ..
 
 # secure the sellingPoint
 
-cp sellingpoint_assets/keycloak.json sellingpoint/src/main/webapp/WEB-INF
-cd sellingpoint
+cp sellingpoint_assets/keycloak.json sellingPoint/src/main/webapp/WEB-INF
+cd sellingPoint
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
 security-add-constraint --web-resource-name SellingPoint --url-patterns /rest/* --security-roles user

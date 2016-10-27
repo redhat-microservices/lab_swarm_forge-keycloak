@@ -46,8 +46,10 @@ cd ..
 project-new --named bookstorefrontend --stack JAVA_EE_7 --type wildfly-swarm --http-port 8081
 wildfly-swarm-add-fraction --fractions undertow
 mv ../bookservice/src/main/webapp/ src/main/
-# manual step : change the url in the angular services to point
-# to http://localhost:8080/rest/ in src/main/webapp/scripts/services
+
+# Keep empty src/main/webapp/WEB-INF
+mkdir ../bookservice/src/main/webapp
+mkdir ../bookservice/src/main/webapp/WEB-INF
 
 cd ~~
 cd ..
@@ -83,6 +85,10 @@ rest-new-cross-origin-resource-sharing-filter
 cd ~~
 cd ..
 
+
+#---------------- Update front end to consume Author and Books from new service
+cp  frontend_assets/services/AuthorFactory.js bookstorefrontend/src/main/webapp/scripts/services/
+cp  frontend_assets/services/BookFactory.js bookstorefrontend/src/main/webapp/scripts/services/
 
 #---------------- Update front end to consume Selling points from new service
 cp  frontend_assets/sellingpoint/search.html bookstorefrontend/src/main/webapp/views/SellingPoint

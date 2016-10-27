@@ -1,4 +1,4 @@
-# security steps , make sure a kc server  is running and that the demo realm has been importet (holrealm.json)
+# security steps , make sure a kc server  is running and that the demo realm has been imported (holrealm.json)
 
 # secure the bookService
 
@@ -29,8 +29,8 @@ cd ..
 
 # secure the sellingPoint
 
-cp sellingpoint_assets/keycloak.json sellingpoint/src/main/webapp/WEB-INF
-cd sellingpoint
+cp sellingpoint_assets/keycloak.json sellingPoint/src/main/webapp/WEB-INF
+cd sellingPoint
 wildfly-swarm-add-fraction --fractions keycloak
 security-add-login-config --auth-method KEYCLOAK --security-realm master
 security-add-constraint --web-resource-name SellingPoint --url-patterns /rest/* --security-roles user
