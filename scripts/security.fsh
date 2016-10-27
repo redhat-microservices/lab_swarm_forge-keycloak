@@ -12,7 +12,8 @@ rm src/main/java/org/bookservice/rest/NewCrossOriginResourceSharingFilter.java
 # redeploy and make sure the endpoint is protected by accessing directly its URL (i.e : localhost:8080/rest/books should show unauthorized)
 
 
-cd ~~/..
+cd ~~
+cd ..
 
 # Secure the frontend
 cp  frontend_assets/keycloak.json bookstorefrontend/src/main/webapp
@@ -23,7 +24,8 @@ cd bookstorefrontend
 
 # Redeploy the frontend, it should now redirect to the keycloak login screen
 
-cd ~~/..
+cd ~~
+cd ..
 
 # secure the sellingPoint
 

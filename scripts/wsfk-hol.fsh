@@ -37,7 +37,8 @@ wildfly-swarm-detect-fractions --depend --build
 rest-new-cross-origin-resource-sharing-filter
 
 ## come up to top level so we can create a new project
-cd $PWD
+cd ~~
+cd ..
 
 # ----------------  Book Store Web Front End [:8081/rest] ---------------
 # Now we want to create front end swarm service to access BookService
@@ -47,7 +48,9 @@ mv ../bookservice/src/main/webapp/ src/main/
 # manual step : change the url in the angular services to point
 # to http://localhost:8080/rest/ in src/main/webapp/scripts/services
 
-cd $PWD
+cd ~~
+cd ..
+
 # ----------------  SellingPoint Service [:8082/rest] ---------------
 # create SellingPoint service
 project-new --named sellingPoint --stack JAVA_EE_7 --type wildfly-swarm --http-port 8082
@@ -75,7 +78,9 @@ wildfly-swarm-detect-fractions --depend --build
 # enable CORS
 rest-new-cross-origin-resource-sharing-filter
 
-cd $PWD
+cd ~~
+cd ..
+
 
 #---------------- Update front end to consume Selling points from new service
 cp  frontend_assets/sellingpoint/search.html bookstorefrontend/src/main/webapp/views/SellingPoint
@@ -89,4 +94,6 @@ cp  frontend_assets/sellingpoint/SellingPointFactory.js bookstorefrontend/src/ma
 project-new --named keycloakserver --stack JAVA_EE_7 --type wildfly-swarm --http-port 8083 --fractions keycloak-server
 
 build
-cd $PWD
+cd ~~
+cd ..
+
